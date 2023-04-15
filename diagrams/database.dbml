@@ -1,0 +1,43 @@
+// Use DBML to define your database structure
+// Docs: https://www.dbml.org/docs
+
+// Visualize the database structure using: https://dbdiagram.io/
+
+Table doctors {
+  id integer [primary key]
+  name varchar
+  email varchar
+  password varchar
+  doctor_id varchar
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp 
+}
+
+Table patients {
+  id integer [primary key]
+  name varchar
+  email varchar
+  password varchar
+  age integer
+  birthday timestamp
+  gender varchar
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp 
+}
+
+Table appointments {
+  id integer [primary key]
+  title varchar
+  appointment_date timestamp
+  patient_id integer
+  doctor_id integer
+  created_at timestamp
+  updated_at timestamp
+  deleted_at timestamp 
+}
+
+Ref: appointments.patient_id > patients.id
+
+Ref: appointments.doctor_id > doctors.id
