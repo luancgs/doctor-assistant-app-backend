@@ -1,4 +1,4 @@
-package services
+package PatientsService
 
 import (
 	"fmt"
