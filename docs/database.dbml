@@ -21,7 +21,7 @@ Table patients {
   password varchar
   age integer
   birthday timestamp
-  gender varchar
+  sex varchar
   created_at timestamp
   updated_at timestamp
   deleted_at timestamp 
