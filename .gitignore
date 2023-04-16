@@ -16,3 +16,6 @@ vendor/
 
 # Database volume
 database/volume/
+
+# Build
+bin/
