@@ -1,15 +1,15 @@
-package controllers
+package PatientsController
 
 import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/luancgs/doctor-assistant-app/database/models"
-	"github.com/luancgs/doctor-assistant-app/src/services"
+	PatientsService "github.com/luancgs/doctor-assistant-app/src/services"
 )
 
 func GetAllPatients(c *gin.Context) {
-	output, err := services.GetAllPatients()
+	output, err := PatientsService.GetAllPatients()
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
@@ -19,7 +19,7 @@ func GetAllPatients(c *gin.Context) {
 }
 
 func GetPatientById(c *gin.Context) {
-	output, err := services.GetPatientById(c.Param("id"))
+	output, err := PatientsService.GetPatientById(c.Param("id"))
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
@@ -32,7 +32,7 @@ func CreatePatient(c *gin.Context) {
 	var patient models.Patient
 	c.Bind(&patient)
 
-	output, err := services.CreatePatient(patient)
+	output, err := PatientsService.CreatePatient(patient)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
@@ -45,7 +45,7 @@ func UpdatePatient(c *gin.Context) {
 	var patient models.Patient
 	c.Bind(&patient)
 
-	output, err := services.UpdatePatient(c.Param("id"), patient)
+	output, err := PatientsService.UpdatePatient(c.Param("id"), patient)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
@@ -55,7 +55,7 @@ func UpdatePatient(c *gin.Context) {
 }
 
 func DeletePatient(c *gin.Context) {
-	output, err := services.DeletePatient(c.Param("id"))
+	output, err := PatientsService.DeletePatient(c.Param("id"))
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
